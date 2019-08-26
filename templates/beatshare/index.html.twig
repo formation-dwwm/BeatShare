@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Beatshare{% endblock %}
+
+
+{% block body %}
+
+<link rel="stylesheet" href="https://unpkg.com/plyr@3/dist/plyr.css">
+
+<div id="beat-mp3-bank" class="d-flex justify-content-around align-items-center">
+
+
+
+
+        <section id="main-list-audio" class="white d-flex flex-column justify-content-center align-items-center p-1 m-0 w-50 shadow-lg rounded mb-0">
+
+            {% for article in articles %}
+    
+                <a id="beat-{{ article.id }}" tabindex="{{ article.id }}" class="d-flex justify-content-between align-items-center beat-section border-bottom border-light p-3 w-100" beat="{{beatAdress}}{{article.title}}.mp3">{{ article.id }} - {{ article.title }}</a>
+        
+            {% endfor %}
+
+        </section>
+
+
+
+        <div id="audio-player" class="card w-25">
+
+
+            <div class="card-body">
+
+                <div class="d-flex justify-content-center align-items-center"><img src="images/play.png" width="64px"><h2 id="beat-brand" class="mb-0 w-100" style="text-align: center;">Choose a beat :</h2></div>
+                <hr>
+
+                <audio preload controls autoplay="true" id="beat-link"></audio>
+
+            </div>
+
+        </div>
+</div>
+
+        <div class="card testimonial-card w-25 rounded-1" style="position: absolute; top: 144px; right: 154px;">
+
+            <div class=" white d-flex justify-content-center align-items-center rounded-1">
+                <img src="images/LogoTete.png" alt="woman avatar" width="128px" class="m-0 pt-2">
+            </div>
+
+            <div class="card-body">
+                <h4 class="card-title" style="text-align: center">Bienvenue sur <h4 id="card-brand-description" style="text-align: center">BEATSHARE</h4></h4>
+                <hr>
+                <p style="text-align: center"><i class="fas fa-quote-left"></i> Choisissez un beat dans la liste à gauche, puis écoutez le grâce au lecteur.<br><br>Inscrivez-vous ou connectez vous pour ajouter des beats</p>
+            </div>
+
+        </div>        
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/html5media/1.1.8/html5media.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/plyr/3.5.6/plyr.min.js"></script>
+
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<section style="padding: 40rem; padding-top: 15rem; padding-bottom: 0rem;">
+
+        <h2 style="text-align: center;">Ajouter un beat :</h2>
+
+        {{ form_start(BeatForm, {'attr': {'class': 'white shadow-lg'}}) }}
+
+        {{ form_row(BeatForm.title, {'label': 'Titre du beat :', 'attr': {'placeholder': 'Titre du beat'}}) }}
+        {{ form_row(BeatForm.src, {'label': 'Importez votre fichier mp3 :', 'attr': {'accept': 'audio/mp3'}}) }}
+
+        <button id="submit-login" type="submit" class="btn btn-blue-grey w-100 m-0 mt-2">Ajouter</button>
+
+        <div id="loading-animation" class="d-flex justify-content-center mt-4">
+            <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+
+        {{ form_end(BeatForm) }}
+
+</section>
+
+<script>
+let loading = document.getElementById('loading-animation');
+let submit = document.getElementById('submit-login');
+
+loading.style.setProperty('visibility', 'hidden', 'important');
+
+submit.addEventListener('click', () => {
+    loading.style.setProperty('visibility', 'visible', 'important');
+})
+
+console.log(loading);
+</script>
+
+{% endblock %}
+
+{# namespace App\DataFixtures;
+
+use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\Persistence\ObjectManager;
+use App\Entity\Article;
+
+class BeatshareFixtures extends Fixture
+{
+    public function load(ObjectManager $manager)
+    {
+        for($i = 1; $i <= 10; $i++){
+            $article = new Article();
+            $article->setTitle("Titre du beat n°$i")
+                    ->setSrc("http://127.0.0.1:8000/beat/$i.mp3")
+                    ->setNumb($i);
+            $manager->persist($article);
+        }
+        $manager->flush();
+    }
+} #}

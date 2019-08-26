@@ -46,7 +46,7 @@ const player = new Plyr('audio', {
 
 
 
-//beat audio controller
+//beat audio loader controller
 
 let source = document.getElementById('beat-link');
 let brand = document.getElementById('beat-brand');
@@ -70,13 +70,11 @@ function beatController(e) {
 beatSelector.addEventListener('click', beatController);
 
 
-window.addEventListener('keypress', (e) => {
+beatSelector.addEventListener('keypress', (e) => {
   if(e.keyCode ===  13)
     beatController(event);
 });
 
-window.addEventListener('keypress', (e) => {
-  if(e.keyCode === 71)
-    player.pause();
-});
+
+
 

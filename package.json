@@ -9,6 +9,7 @@
     "private": true,
     "scripts": {
         "dev-server": "encore dev-server",
+        "dev-server-mobile": "encore dev-server --host 10.121.113.60",
         "dev": "encore dev",
         "watch": "encore dev --watch",
         "build": "encore production --progress"

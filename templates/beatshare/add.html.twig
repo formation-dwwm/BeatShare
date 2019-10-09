@@ -2,13 +2,11 @@
 
 {% block body %}
 
-<section style="padding: 40rem; padding-top: 15rem; padding-bottom: 0rem;">
+<section  id="form-section">
 
-        <h2 style="text-align: center;">Ajouter un beat :</h2>
-
-        {{ form_start(BeatForm, {'attr': {'class': 'white shadow-lg'}}) }}
-
-        {{ form_row(BeatForm.title, {'label': 'Titre du beat :', 'attr': {'placeholder': 'Titre du beat'}}) }}
+        {{ form_start(BeatForm, {'attr': {'class': 'white'}}) }}
+        {{ form_row(BeatForm.title, {'label': 'Titre du beat :', 'attr': {'placeholder': 'Titre du beat'}, }) }}
+        {{ form_row(BeatForm.img, {'label': 'Importez votre image :', 'attr': {'accept': 'image/*'}}) }}
         {{ form_row(BeatForm.src, {'label': 'Importez votre fichier mp3 :', 'attr': {'accept': 'audio/mp3'}}) }}
 
         <button id="submit-login" type="submit" class="btn btn-blue-grey w-100 m-0 mt-2">Ajouter</button>
@@ -31,10 +29,37 @@ loading.style.setProperty('visibility', 'hidden', 'important');
 
 submit.addEventListener('click', () => {
     loading.style.setProperty('visibility', 'visible', 'important');
-})
+});
 
-console.log(loading);
+
+window.addEventListener('load', () => scrollFunction());
+
+function scrollFunction() {
+
+  let navbar = document.querySelector('.navbar');
+  let search = document.getElementById('wrap');
+  let hamburger = document.getElementsByClassName('burgerMenu'); 
+  let navbarBrand = document.getElementById('navbar-brand');
+
+  hamburger.forEach(element => {
+    element.style.setProperty('background', '#37474f', 'important');
+  });
+  navbar.style.backgroundColor = "white";
+  navbar.style.setProperty('box-shadow', '0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12)', 'important');
+  navbar.style.setProperty('transition', '700ms', 'important');
+  search.style.setProperty('visibility', 'visible', 'important');
+  navbarBrand.style.color = "#37474f";
+}
+
 </script>
+
+
+
+<style>
+    body{
+        background-color: white !important;
+    }
+</style>
 
 {% endblock %}
 

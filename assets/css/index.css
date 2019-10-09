@@ -1,0 +1,79 @@
+#brand-logo{
+    margin-left: 50px;
+    animation-name: logo;
+    animation-duration: 1s;
+}
+
+#cards-component-container{
+    margin-left: 50px;
+    animation-name: card;
+    animation-duration: 1s;
+}
+
+#beat-mp3-bank{
+    padding-top: 6rem;
+    margin-bottom: 15rem !important;
+    margin-left: 50px;
+}
+
+#main-list-audio a{
+    color: #37474f;
+    outline: none;
+}
+
+#main-list-audio img{
+    margin-right: 1rem;
+}
+
+#main-list-audio a:hover{
+    background: #7f8385;
+    color: #FFF;
+    transition-duration: 0.6s; 
+}
+
+#main-list-audio a:focus{
+    background: #37474f;
+    color: #FFF;
+}
+
+#main-list-audio{
+    margin-top: 2rem;
+}
+
+card-component{
+    width: 20%;
+}
+
+@keyframes logo {
+    
+    0% {
+        margin-top: 100px;
+        z-index: 100;
+        opacity: 1;
+    }
+    
+    50% {    
+        margin-top: 100px;   
+        transform: rotate(360deg);
+        opacity: 0.5;
+        z-index: 100;
+    }
+    
+    100% {
+        margin-top: 100px;
+        z-index: 100;
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+}
+
+@keyframes card {
+
+    0%{
+        transform: translateY(100px);
+    }
+
+    100%{
+        transform: translateY(-100px)
+    }
+}

@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<section  id="form-section">
+  
+  {{ form_start(form, {'attr': {'class': 'white'}}) }}
+
+  {{ form_row(form.username, {'label': 'Nom d\'utilisateur', 'attr': {'placeholder': 'Pseudo'}}) }}
+  {{ form_row(form.email, {'label': 'Email', 'attr': {'placeholder': 'Email'}, 'type': 'email'}) }}
+  {{ form_row(form.password, {'label': 'Mot de passe', 'attr': {'placeholder': 'Mot de passe'}}) }}
+  {{ form_row(form.confirm_password, {'label': 'Confirmation du mot de passe', 'attr': {'placeholder': 'Répétez le mot de passe'}}) }}
+  <button id="submit-login" type="submit" class="btn btn-blue-grey w-100 m-0 mt-2">Modifier</button>
+  <a class="btn btn-outline-danger w-100 ml-0 p-2 pr-4 pl-4" id="delete-account-button" data-toggle="modal" data-target="#delete-account">SUPPRIMER MON COMPTE</a>     
+
+  {{ form_end(form) }}
+
+  <div id="loading-animation" class="d-flex justify-content-center mt-4">
+      <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+      </div>
+  </div>
+  </section>
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="delete-account" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">êtes vous sûr de vouloir supprimer votre compte ?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-blue-grey" data-dismiss="modal">FERMER</button>
+        <a href="/delete-account" class="btn btn-outline-danger">SUPPRIMER</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+</section>
+
+<style>
+    body{
+        background-color: white !important;
+    }
+</style>
+
+<script>
+  let loading = document.getElementById('loading-animation');
+  let submit = document.getElementById('submit-login');
+
+  loading.style.setProperty('visibility', 'hidden', 'important');
+
+  submit.addEventListener('click', () => {
+      loading.style.setProperty('visibility', 'visible', 'important');
+  });
+</script>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+body{
+    background-color: #FFF !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.list-group-item{
+    font-family:'Lexend Deca';
+    color: #37474f!important;
+}
+
+#profil-container-block{
+    padding-top: 100px;
+}
+
+#profil-personnal-beats a{
+    color: #000;
+    outline: none;
+}
+
+#profil-personnal-beats a:first-child{
+border: 1px solid #dee2e6!important;
+}

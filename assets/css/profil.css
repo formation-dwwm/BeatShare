@@ -1,24 +1,24 @@
-body{
-    background-color: #FFF !important;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+#profil-container-block {
+    padding-top: 10px;
+    width: 100%;
 }
 
-.list-group-item{
-    font-family:'Lexend Deca';
-    color: #37474f!important;
+.profil-h2-brand {
+    color: #fff;
 }
 
-#profil-container-block{
-    padding-top: 100px;
+.list-group-item {
+    color: #fff;
+    background-color: transparent;
+    border-color: #fff;
 }
 
-#profil-personnal-beats a{
-    color: #000;
+#profil-personnal-beats a {
+    color: #fff;
     outline: none;
+    background-color: transparent;
 }
 
-#profil-personnal-beats a:first-child{
-border: 1px solid #dee2e6!important;
+#profil-personnal-beats a:first-child {
+    border: 1px solid #dee2e6;
 }

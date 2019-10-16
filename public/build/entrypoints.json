@@ -1,0 +1,67 @@
+{
+  "entrypoints": {
+    "base": {
+      "js": [
+        "http://localhost:8080/build/runtime.js",
+        "http://localhost:8080/build/vendors~audioplayer~base~cards~index~profil~sidenav.js",
+        "http://localhost:8080/build/base.js"
+      ],
+      "css": [
+        "http://localhost:8080/build/base.css"
+      ]
+    },
+    "index": {
+      "js": [
+        "http://localhost:8080/build/runtime.js",
+        "http://localhost:8080/build/vendors~audioplayer~base~cards~index~profil~sidenav.js",
+        "http://localhost:8080/build/vendors~audioplayer~cards~index~profil~sidenav.js",
+        "http://localhost:8080/build/vendors~index.js",
+        "http://localhost:8080/build/index.js"
+      ],
+      "css": [
+        "http://localhost:8080/build/index.css"
+      ]
+    },
+    "profil": {
+      "js": [
+        "http://localhost:8080/build/runtime.js",
+        "http://localhost:8080/build/vendors~audioplayer~base~cards~index~profil~sidenav.js",
+        "http://localhost:8080/build/vendors~audioplayer~cards~index~profil~sidenav.js",
+        "http://localhost:8080/build/vendors~profil.js",
+        "http://localhost:8080/build/profil.js"
+      ],
+      "css": [
+        "http://localhost:8080/build/profil.css"
+      ]
+    },
+    "sidenav": {
+      "js": [
+        "http://localhost:8080/build/runtime.js",
+        "http://localhost:8080/build/vendors~audioplayer~base~cards~index~profil~sidenav.js",
+        "http://localhost:8080/build/vendors~audioplayer~cards~index~profil~sidenav.js",
+        "http://localhost:8080/build/sidenav.js"
+      ],
+      "css": [
+        "http://localhost:8080/build/sidenav.css"
+      ]
+    },
+    "audioplayer": {
+      "js": [
+        "http://localhost:8080/build/runtime.js",
+        "http://localhost:8080/build/vendors~audioplayer~base~cards~index~profil~sidenav.js",
+        "http://localhost:8080/build/vendors~audioplayer~cards~index~profil~sidenav.js",
+        "http://localhost:8080/build/vendors~audioplayer~cards.js",
+        "http://localhost:8080/build/audioplayer.js"
+      ]
+    },
+    "cards": {
+      "js": [
+        "http://localhost:8080/build/runtime.js",
+        "http://localhost:8080/build/vendors~audioplayer~base~cards~index~profil~sidenav.js",
+        "http://localhost:8080/build/vendors~audioplayer~cards~index~profil~sidenav.js",
+        "http://localhost:8080/build/vendors~audioplayer~cards.js",
+        "http://localhost:8080/build/cards.js"
+      ]
+    }
+  }
+}

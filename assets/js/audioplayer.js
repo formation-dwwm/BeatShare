@@ -15,14 +15,11 @@ body
 .audio-container
 {
     z-index: 100;
-    position: fixed;
-    bottom: 0;
     width: 100%;
     background: rgb(54, 54, 54);
     padding: 0.5rem;
     display: flex;
     justify-content: center;
-    font-family: 'Arial';
     animation-name: audioPlayerSlideIn;
     animation-duration: 0.7s;
     box-shadow: 1px 1px 4px 1px rgba(92, 92, 92, 0.62);
@@ -182,31 +179,6 @@ input[type=range]::-moz-range-thumb {
   display: none;
 }
 
-@keyframes audioPlayerSlideIn
-{
-  0%{
-    transform: translateY(102px);
-    opacity: 0;
-  }
-
-  100%{
-    transform: translateX(0px);
-  }
-}
-
-@keyframes overflowHidden
-{
-  0%{
-    overflow: hidden;
-  }
-
-  100%{
-    overflow: hidden;
-  }
-}
-
-
-
 @media (max-width: 1350px)
 {
   #songSlider
@@ -234,6 +206,7 @@ input[type=range]::-moz-range-thumb {
   #song-image
   {
     width: 64px;
+    height: 64px;
   }
   #currentTime, #duration
   {
@@ -256,7 +229,7 @@ input[type=range]::-moz-range-thumb {
 
         <div id="brand-player">
 
-            <img id="song-image" alt="song image" width="86px" height="86px">
+            <img id="song-image" alt="song image" width="96px" height="96px">
 
                 <div class="song-title">
                     <p id="songTitle">My song title will goes here</p>
@@ -343,8 +316,8 @@ class AudioPlayer extends HTMLElement {
     connectedCallback()
     {
         this.loadSong();
+        
         setInterval(this.updateSongSlider.bind(this), 1000);
-        this.updateSongSlider();
         this.playPause.addEventListener('click', this.playOrPauseSong.bind(this));
         this.speaker.addEventListener('click', this.clickMuted.bind(this));
         this.speaker.addEventListener('scroll', this.adjustVolume.bind(this));

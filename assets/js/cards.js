@@ -12,7 +12,6 @@
 const cardTemplateHtml = `
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Asap&display=swap">
 <style>
 
 
@@ -29,7 +28,6 @@ body
     max-width: 25%;
     background: transparent;
     border-radius: 0.5rem;
-    font-family: 'Asap';
     margin: 2rem;
 }
 
@@ -45,7 +43,7 @@ body
     position: absolute;
     top: 15px;
     left: 15px;
-    background: rgb(68, 68, 68);
+    background: rgb(68, 68, 68) !important;
     z-index: -1;
     border-radius: 0.5rem;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 2px 5px 0px, rgba(0, 0, 0, 0.12) 0px 2px 10px 0px;
@@ -91,7 +89,7 @@ body
 p{
     width: 90%;
     padding-top: 0.4rem;
-    font-family: 'Asap';
+    font-family: 'Lexend Deca';
 }
 
 .fas{
@@ -243,11 +241,11 @@ class Card extends HTMLElement {
             // No big deal if it throw an exception here
         }
         // Must add fonts from google out of the Shadow DOM !
-        let linkNode = document.createElement("link"); 
-        linkNode.type = "text/css"; 
-        linkNode.rel = "stylesheet"; 
-        linkNode.href = "//fonts.googleapis.com/css?family=Asap";
-        document.head.appendChild(linkNode);
+        // let linkNode = document.createElement("link"); 
+        // linkNode.type = "text/css"; 
+        // linkNode.rel = "stylesheet"; 
+        // linkNode.href = "//fonts.googleapis.com/css?family=Asap";
+        // document.head.appendChild(linkNode);
 
     }
 

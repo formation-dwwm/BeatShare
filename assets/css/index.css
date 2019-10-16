@@ -1,79 +1,155 @@
-#brand-logo{
-    margin-left: 50px;
-    animation-name: logo;
-    animation-duration: 1s;
+body {
+    overflow-x: hidden;
 }
 
-#cards-component-container{
-    margin-left: 50px;
+#welcome-container {
+    position: relative;
+    background-image: linear-gradient(to right, #d45445, #b0485f, #804665, #534156, #363636);
+    height: 60vh;
+}
+
+#welcome-container h1 {
+    color: #FFF;
+    width: 100%;
+    margin-bottom: 5rem;
+    text-align: center;
+}
+
+.search-container {
+    margin: 0 12.5%;
+}
+
+input#search-bar {
+    margin: 0 auto;
+    color: #fff !important;
+    width: 100%;
+    height: 45px;
+    padding: 0 20px;
+    font-size: 1rem;
+    border: 1px solid #fff;
+    border-radius: 25px;
+    outline: none;
+}
+
+input#search-bar::placeholder {
+    color: #fff !important;
+}
+
+.search-icon {
+    color: #fff;
+    position: relative;
+    float: right;
+    font-size: 150%;
+    top: -35px;
+    right: 20px;
+}
+
+#cards-component-container {
+    position: absolute;
+    bottom: -120px;
+    z-index: 10;
+    width: 100%;
+    color: #FFF;
     animation-name: card;
     animation-duration: 1s;
 }
 
-#beat-mp3-bank{
-    padding-top: 6rem;
-    margin-bottom: 15rem !important;
-    margin-left: 50px;
+#separator {
+    height: 400px;
+    width: 100%;
+    background-image: linear-gradient(to right top, #e0e0e0, #e8e8e8, #efefef, #f7f7f7, #ffffff);
+    clip-path: polygon(20% 0%, 80% 0%, 100% 15%, 100% 100%, 80% 100%, 20% 100%, 0 100%, 0 15%);
 }
 
-#main-list-audio a{
-    color: #37474f;
-    outline: none;
+#separator .btn {
+    width: 175px;
+    margin-top: 4rem;
 }
 
-#main-list-audio img{
+#separator div:first-child {
+    height: 50px;
+}
+
+#separator div h1 {
+    margin-top: 4rem;
+    text-align: center;
+    color: #d45445;
+}
+
+#beat-mp3-bank {
+    padding-top: 2rem;
+    padding-bottom: 8rem;
+}
+
+#last-news {
+    text-align: center;
+    color: #fff;
+    margin-left: 105px;
+}
+
+card-component {
+    width: 25%;
+}
+
+#last-news i {
+    font-size: 230%;
     margin-right: 1rem;
 }
 
-#main-list-audio a:hover{
-    background: #7f8385;
-    color: #FFF;
-    transition-duration: 0.6s; 
-}
-
-#main-list-audio a:focus{
-    background: #37474f;
-    color: #FFF;
-}
-
-#main-list-audio{
+#main-list-audio {
     margin-top: 2rem;
 }
 
-card-component{
-    width: 20%;
+#main-list-audio a {
+    color: #fff;
+    outline: none;
+    background-color: transparent;
+    border-right: 1px solid #fff;
 }
 
-@keyframes logo {
-    
+#main-list-audio a:first-child {
+    border-top: 1px solid #dee2e6;
+}
+
+#main-list-audio a:focus {
+    background-image: linear-gradient(to left top, #e0e0e0, #e8e8e8, #efefef, #f7f7f7, #ffffff);
+    color: #363636;
+}
+
+#main-list-audio img {
+    margin-right: 1rem;
+}
+
+
+.audio-player-open {
+    animation-name: audioPlayer;
+    animation-duration: 0.6s;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+
+
+
+@keyframes audioPlayer {
+
     0% {
-        margin-top: 100px;
-        z-index: 100;
-        opacity: 1;
+        transform: translateY(90px);
     }
-    
-    50% {    
-        margin-top: 100px;   
-        transform: rotate(360deg);
-        opacity: 0.5;
-        z-index: 100;
-    }
-    
+
     100% {
-        margin-top: 100px;
-        z-index: 100;
-        transform: translateY(-100px);
-        opacity: 0;
+        transform: translateY(0px);
     }
 }
+
 
 @keyframes card {
 
-    0%{
+    0% {
         transform: translateY(100px);
     }
 
-    100%{
-        transform: translateY(-100px)
+    100% {
+        transform: translateY(0px)
     }
 }

@@ -18,7 +18,8 @@ function beatController(e) {
 
     newAuthor =  newAuthor.substring(0, newAuthor.indexOf('-'));
     newTitle = newTitle.split("-").pop();
-   
+    audioPlayer.style.display = "block";
+    audioPlayer.setAttribute('class', 'audio-player-open');
     audioPlayer.setAttribute('songSrc', newSrc);
     audioPlayer.setAttribute('songImg', newImage);
     audioPlayer.setAttribute('songAuthor', newAuthor);
@@ -32,23 +33,10 @@ beatSelector.addEventListener('keypress', (e) => {
     beatController(event);
 });
 
-//load the first beat from the list 
-window.onload = () => {
-  let newSrc = audioList.getAttribute('beat');
-  let newImage =  audioList.getAttribute('img');
-  let newAuthor = audioList.textContent;
-  let newTitle = audioList.textContent;
-  
-  newAuthor =  newAuthor.substring(0, newAuthor.indexOf('-'));
-  newTitle = newTitle.split("-").pop();
-  audioPlayer.setAttribute('songSrc', newSrc);
-  audioPlayer.setAttribute('songImg', newImage);
-  audioPlayer.setAttribute('songAuthor', newAuthor);
-  audioPlayer.setAttribute('songTitle', newTitle);
-}
+//Hide the audioPlayer on load
+window.onload = audioPlayerHidden();
 
-//bug css 
-if(window.screen.width <= 650){
-  beatSelector.removeAttribute('style');
+function audioPlayerHidden() 
+{
+    audioPlayer.style.display = "none";
 }
-

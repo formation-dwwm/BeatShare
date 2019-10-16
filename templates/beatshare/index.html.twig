@@ -9,67 +9,78 @@
 
 {% block body %}
 
-<div id="brand-logo" class="d-flex justify-content-center align-items-center"><img src="images/Logo/logo_transparent.png" width="256px"></div>
+<main id="main">
+    <div id="welcome-container">
+        <div id="brand-logo" class="d-flex justify-content-end align-items-center"><img src="images/Logo/logo_transparent.png" width="128px"></div>
+        
+        <h1>Bienvenue sur Beatshare, écoutez, uploadez, enregistrez <br>
+         vos beats et partagez les avec la communauté !</h1>
 
-<div id="cards-component-container" class="d-flex justify-content-around align-items-center">
+        <form class="search-container w-75">
+            <input type="text" id="search-bar" placeholder="Rechercher un beat...">
+            <a href="#"><i class="fas fa-search search-icon"></i></a>
+        </form>
 
-     <card-component imgSrc="images/cards/headphone.png">
-                        <p slot="content">
-                            Ecoutez des beats publiés par la communauté
-                        </p>
-                      <ul slot="actions">
-                          <li text="Some action" value=1></li>
-                          <li text="Some action2" value=2></li>
-                          <li text="Some action3" value=3></li>
-                      </ul>
-    </card-component>
+        
+        <div id="cards-component-container" class="d-flex justify-content-around align-items-end">
+            
+                    <img src="images/cards/headphone.png" width="256px">
+             
+                    <img src="images/cards/upload.png" width="256px">
+          
+                    <img src="images/cards/microphone.png" width="256px">
+            
+        </div>
+    </div>
 
-    <card-component imgSrc="images/cards/upload.png" >
-                        <p slot="content">
-                            Inscrivez vous, puis uploadez vos beats !
-                        </p>
-                      <ul slot="actions">
-                          <li text="Some action" value=1></li>
-                          <li text="Some action2" value=2></li>
-                          <li text="Some action3" value=3></li>
-                      </ul>
-    </card-component>
+    <div id="separator" class="d-flex flex-column justify-content-center align-items-center">
 
-    <card-component imgSrc="images/cards/microphone.png" >
-                        <p slot="content">
-                            Enregistrez du contenu vocal par dessus d'autres beats  
-                        </p>
-                      <ul slot="actions">
-                          <li text="Some action" value=1></li>
-                          <li text="Some action2" value=2></li>
-                          <li text="Some action3" value=3></li>
-                      </ul>
-    </card-component>
-</div>
+        <div class="w-100 mb-3"><h1>Inscrivez-vous ou connectez vous pour profiter de toutes les fonctionnalités</h1></div>
 
-<div id="beat-mp3-bank" class="d-flex justify-content-around align-items-center">
+        <div class="w-100 d-flex align-items-center justify-content-center mt-3">
+            <a class="btn" href="{{ path('security_registration') }}">Inscription</a>
+                    
+            <a class="btn" href="{{ path('security_login') }}">Connexion</a>
+        </div>
 
-    <section id="main-list-audio" class="white d-flex flex-column justify-content-center align-items-center p-1 shadow-lg rounded w-75">
+    </div>
 
-        {% for article in articles %}
-
-        <a id="beat-{{ article.id }}" tabindex="{{ article.id }}" class="d-flex justify-content-start align-items-center beat-section border-bottom border-light p-0 w-100"
-            beat="beat/{{article.title}}.mp3" img="images/beatImages/{{article.img}}">
-            <img class="beat-images" src="images/beatImages/{{article.img}}" width="64px" height="64px" class="mr-3">
-            {{ article.artiste }} - {{ article.title }}
-
-            <button id="listBtn" type="button" class="btn btn-outline-blue-grey waves-effect ml-auto float-right d-flex align-items-center justify-content-center">
-            <i class="fas fa-plus"></i>
-            </button>
-        </a>
-
-        {% endfor %}
-
-    </section>
-
-</div>
-
- <audio-player songSrc="" songTitle="" songAuthor="" songImg=""></audio-player>
+    <div id="beat-mp3-bank" class="d-flex flex-wrap justify-content-center align-items-start">
+        <div id="last-news" class="w-100 d-flex justify-content-center align-items-center"><i class="fas fa-music"></i><h1>Dernières nouveautés</h1></div>
+        
+        <card-component imgSrc="./images/cards/headphones.jpg" >
+                    <p slot="content">
+                        Selectionne un beat dans la liste à droite pour l'écouter ! 
+                    </p>
+                <ul slot="actions">
+                    <li text="Some action" value=1></li>
+                    <li text="Some action2" value=2></li>
+                    <li text="Some action3" value=3></li>
+                </ul>
+            </card-component>
+         
+        <section id="main-list-audio" class="d-flex flex-column justify-content-center align-items-center rounded w-50">
+       
+            {% for article in articles %}
+    
+            <a id="beat-{{ article.id }}" tabindex="{{ article.id }}" class="d-flex justify-content-start align-items-center beat-section border-bottom border-left border-light p-0 w-100"
+                beat="beat/{{article.title}}.mp3" img="images/beatImages/{{article.img}}">
+                <img class="beat-images" src="images/beatImages/{{article.img}}" width="64px" height="64px" class="mr-3">
+                {{ article.artiste }} - {{ article.title }}
+    
+                <button type="button" class="btn ml-auto float-right d-flex align-items-center justify-content-center listBtn">
+                <i class="fas fa-plus"></i>
+                </button>
+            </a>
+    
+            {% endfor %}
+    
+        </section>
+    
+    </div>
+    
+     <audio-player songSrc="" songTitle="" songAuthor="" songImg=""></audio-player>
+</main>
 
 
 {% endblock %}

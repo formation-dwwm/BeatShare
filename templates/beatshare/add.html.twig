@@ -4,14 +4,17 @@
 
 <section  id="form-section">
 
-        {{ form_start(BeatForm, {'attr': {'class': 'white'}}) }}
+        {{ form_start(BeatForm) }}
+        <div id="form-header" class="d-flex justify-content-center align-items-center">
+            <img src="images/Logo/logo_transparent.png" width="128px">
+        </div>
         {{ form_row(BeatForm.title, {'label': 'Titre du beat :', 'attr': {'placeholder': 'Titre du beat'}, }) }}
         {{ form_row(BeatForm.img, {'label': 'Importez votre image :', 'attr': {'accept': 'image/*'}}) }}
-        {{ form_row(BeatForm.src, {'label': 'Importez votre fichier mp3 :', 'attr': {'accept': 'audio/mp3'}}) }}
+        {{ form_row(BeatForm.src, {'label': 'Importez votre fichier mp3 :', 'attr': {'accept': 'audio/*'}}) }}
 
-        <button id="submit-login" type="submit" class="btn btn-blue-grey w-100 m-0 mt-2">Ajouter</button>
+       <div class="form-group"><button id="submit-login" type="submit" class="btn w-100 m-0 mt-2">Ajouter</button></div>
 
-        <div id="loading-animation" class="d-flex justify-content-center mt-4">
+        <div id="loading-animation" class="d-flex justify-content-center pb-4">
             <div class="spinner-border" role="status">
                 <span class="sr-only">Loading...</span>
             </div>
@@ -21,65 +24,4 @@
 
 </section>
 
-<script>
-let loading = document.getElementById('loading-animation');
-let submit = document.getElementById('submit-login');
-
-loading.style.setProperty('visibility', 'hidden', 'important');
-
-submit.addEventListener('click', () => {
-    loading.style.setProperty('visibility', 'visible', 'important');
-});
-
-
-window.addEventListener('load', () => scrollFunction());
-
-function scrollFunction() {
-
-  let navbar = document.querySelector('.navbar');
-  let search = document.getElementById('wrap');
-  let hamburger = document.getElementsByClassName('burgerMenu'); 
-  let navbarBrand = document.getElementById('navbar-brand');
-
-  hamburger.forEach(element => {
-    element.style.setProperty('background', '#37474f', 'important');
-  });
-  navbar.style.backgroundColor = "white";
-  navbar.style.setProperty('box-shadow', '0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12)', 'important');
-  navbar.style.setProperty('transition', '700ms', 'important');
-  search.style.setProperty('visibility', 'visible', 'important');
-  navbarBrand.style.color = "#37474f";
-}
-
-</script>
-
-
-
-<style>
-    body{
-        background-color: white !important;
-    }
-</style>
-
 {% endblock %}
-
-{# namespace App\DataFixtures;
-
-use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Common\Persistence\ObjectManager;
-use App\Entity\Article;
-
-class BeatshareFixtures extends Fixture
-{
-    public function load(ObjectManager $manager)
-    {
-        for($i = 1; $i <= 10; $i++){
-            $article = new Article();
-            $article->setTitle("Titre du beat n°$i")
-                    ->setSrc("http://127.0.0.1:8000/beat/$i.mp3")
-                    ->setNumb($i);
-            $manager->persist($article);
-        }
-        $manager->flush();
-    }
-} #}

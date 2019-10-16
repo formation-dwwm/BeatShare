@@ -1,88 +1,104 @@
 {% extends 'base.html.twig' %}
 
 {% block stylesheets %}
-    {{ parent() }}
-    {{ encore_entry_link_tags('profil') }}
- {% endblock %}
+{{ parent() }}
+{{ encore_entry_link_tags('profil') }}
+{% endblock %}
 
 {% block body %}
 
 {% if  app.user %}
 
-<section id="profil-container-block" class="d-flex w-100 justify-content-around align-items-start">
-   
-    <div id="personnal-infos-container" class="profil-infos d-flex flex-column align-items-center w-25 p-3">
-         
-        <div style="min-height: 50px;" class="d-flex justify-content-between align-items-center w-100"><h2 class="profil-h2-brand" style="text-align: center;">Mon compte :</h2><a class="btn btn-outline-blue-grey  m-0 p-2 pr-4 pl-4 d-flex justify-content-center align-items-center" id="modify-button" href="Edition">MODIFIER</a></div>
-        
-        <ul class="list-group w-100">
-            <li class="list-group-item">
-                 <div class="md-v-line"></div><i class="fas fa-user mr-4 pr-3"></i>{{ username }} 
-            </li>
-            <li class="list-group-item">
-                 <div class="md-v-line"></div><i class="fas fa-envelope mr-4 pr-3"></i>{{ email }}
-            </li>
-        </ul>
 
-    </div>
-
-    <div class="profil-infos d-flex flex-column justify-content-between align-items-center w-50 p-3">
-
-        <div style="min-height: 50px;" class="d-flex justify-content-between align-items-center w-100"><h2 class="profil-h2-brand" style="text-align: center;">Vos beats publiés :</h2></div>
-        
-        <section id="profil-personnal-beats" class="white d-flex flex-column justify-content-center align-items-center m-0 pt-0 rounded mb-0 w-100">
-        
-        {% for article in articles %}
-
-            {% if article.artiste == username %}
-
-                <a id="personnal-beat-{{ article.id }}" tabindex="{{ article.id }}" data-beat-id="{{ article.id }}" class="beat-personnal d-flex justify-content-start align-items-center beat-section border-bottom border-right border-light p-0 w-100" img="images/{{article.img}}">
-                    <img src="images/beatImages/{{article.img}}" width="86px" height="86px" class="mr-3">{{ article.artiste }} - {{ article.title }}
-                    <button type="button" class="btn btn-outline-danger waves-effect ml-auto float-right mr-3" data-toggle="modal" data-target="#mod-{{ article.id }}" data-beat-id="{{ article.id }}">
-                    <i class="fas fa-times"></i>
+<div id="brand-logo" class="d-flex justify-content-end align-items-center w-100"><img src="images/Logo/logo_transparent.png" width="128px"></div>
+    <section id="profil-container-block" class="d-flex w-100 justify-content-around align-items-start">
+    
+        <div id="personnal-infos-container" class="profil-infos d-flex flex-column align-items-center w-25 p-3">
+    
+            <div style="min-height: 50px;" class="d-flex justify-content-between align-items-center w-100">
+                <h2 class="profil-h2-brand" style="text-align: center;">Mon compte :</h2>
+                <a class="btn m-0 p-2 pr-4 pl-4 d-flex justify-content-center align-items-center"
+                    id="modify-button" href="Edition">MODIFIER</a>
+            </div>
+    
+            <ul class="list-group w-100">
+                <li class="list-group-item">
+                    <div class="md-v-line"></div><i class="fas fa-user mr-4 pr-3"></i>{{ username }}
+                </li>
+                <li class="list-group-item">
+                    <div class="md-v-line"></div><i class="fas fa-envelope mr-4 pr-3"></i>{{ email }}
+                </li>
+            </ul>
+    
+        </div>
+    
+        <div class="profil-infos d-flex flex-column justify-content-between align-items-center w-50 p-3">
+    
+            <div style="min-height: 50px;" class="d-flex justify-content-between align-items-center w-100">
+                <h2 class="profil-h2-brand" style="text-align: center;">Vos beats publiés :</h2>
+            </div>
+    
+            <section id="profil-personnal-beats"
+                class="d-flex flex-column justify-content-center align-items-center m-0 pt-0 rounded mb-0 w-100">
+    
+                {% for article in articles %}
+    
+                {% if article.artiste == username %}
+    
+                <a id="personnal-beat-{{ article.id }}" tabindex="{{ article.id }}" data-beat-id="{{ article.id }}"
+                    class="beat-personnal d-flex justify-content-start align-items-center beat-section border-bottom border-right border-left border-light p-0 w-100"
+                    img="images/{{article.img}}">
+                    <img src="images/beatImages/{{article.img}}" width="64px" height="64px"
+                        class="mr-3">{{ article.artiste }} - {{ article.title }}
+                    <button type="button" class="btn btn-outline-danger waves-effect ml-auto float-right mr-3"
+                        data-toggle="modal" data-target="#mod-{{ article.id }}" data-beat-id="{{ article.id }}">
+                        <i class="fas fa-times"></i>
                     </button>
                 </a>
-
+    
                 <div class="modal fade" id="mod-{{ article.id }}" tabindex="-1" role="dialog"
                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Suppression du beat : {{ username }} - {{ article.title }}</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Suppression du beat : {{ username }} -
+                                    {{ article.title }}</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div class="modal-footer d-flex justify-content-around">
-
+    
                                 <button type="button" class="btn btn-outline-blue-grey" data-dismiss="modal">Fermer</button>
-
-                                <button type="submit" class="btn btn-outline-danger" id="{{ article.id }}">Supprimer</button>
-                               
+    
+                                <button type="submit" class="btn btn-outline-danger"
+                                    id="{{ article.id }}">Supprimer</button>
+    
                             </div>
                         </div>
                     </div>
                 </div>
-            
-            
-            {% endif %}
-
-        {% endfor %}
-
-        </section>
+    
+    
+                {% endif %}
+    
+                {% endfor %}
+    
+            </section>
+    
+        </div>
+    
+    </section>
     
     </div>
-   
-</section>
-
     </div>
-  </div>
-</div>
+    </div>
+
 
 {% endif %}
 {% endblock %}
 
 {% block javascripts %}
-    {{ parent() }}
-    {{ encore_entry_script_tags('profil') }}
- {% endblock %}
+{{ parent() }}
+{{ encore_entry_script_tags('profil') }}
+{% endblock %}

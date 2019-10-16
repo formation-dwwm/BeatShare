@@ -1,0 +1,20 @@
+{
+  "build/audioplayer.js": "http://localhost:8080/build/audioplayer.js",
+  "build/base.css": "http://localhost:8080/build/base.css",
+  "build/base.js": "http://localhost:8080/build/base.js",
+  "build/cards.js": "http://localhost:8080/build/cards.js",
+  "build/index.css": "http://localhost:8080/build/index.css",
+  "build/index.js": "http://localhost:8080/build/index.js",
+  "build/profil.css": "http://localhost:8080/build/profil.css",
+  "build/profil.js": "http://localhost:8080/build/profil.js",
+  "build/runtime.js": "http://localhost:8080/build/runtime.js",
+  "build/sidenav.css": "http://localhost:8080/build/sidenav.css",
+  "build/sidenav.js": "http://localhost:8080/build/sidenav.js",
+  "build/vendors~audioplayer~base~cards~index~profil~sidenav.js": "http://localhost:8080/build/vendors~audioplayer~base~cards~index~profil~sidenav.js",
+  "build/vendors~audioplayer~cards.js": "http://localhost:8080/build/vendors~audioplayer~cards.js",
+  "build/vendors~audioplayer~cards~index~profil~sidenav.js": "http://localhost:8080/build/vendors~audioplayer~cards~index~profil~sidenav.js",
+  "build/vendors~index.js": "http://localhost:8080/build/vendors~index.js",
+  "build/vendors~profil.js": "http://localhost:8080/build/vendors~profil.js",
+  "build/vendors~cards.js": "http://localhost:8080/build/vendors~cards.js",
+  "build/vendors~cards~index~profil~sidenav.js": "http://localhost:8080/build/vendors~cards~index~profil~sidenav.js"
+}
